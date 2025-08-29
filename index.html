@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your News Your Way</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Main Header Section -->
+    <header>
+        <h1>Your News Your Way</h1>
+        <p>Stay updated with the latest news in various categories.</p>
+    </header>
+
+    <!-- Navigation Bar for Login and Sign-Up -->
+    <nav class="navbar">
+        <ul class="navbar-menu">
+            <li><button id="loginBtn">Login</button></li>
+            <li><button id="signUpBtn">Sign-Up</button></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Container -->
+    <div class="container">
+        <!-- Filter Section -->
+        <div class="filters">
+            <h2>Filter News By Category</h2>
+            <select id="categoryFilter">
+                <option value="all">All Categories</option>
+                <option value="technology">Technology</option>
+                <option value="sports">Sports</option>
+                <option value="business">Business</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="health">Health</option>
+                <option value="science">Science</option>
+                <option value="education">Education</option>
+                <option value="politics">Politics</option>
+            </select>
+            <p>Choose a category to explore the latest articles.</p>
+        </div>
+
+        <!-- News List Display Section -->
+        <div class="news-list" id="newsList">
+            <!-- News items will be dynamically inserted here -->
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="loader" class="loader" style="display: none;">Loading...</div>
+    </div>
+
+    <!-- Footer Section -->
+
+    <footer class="footer"> 
+        <div class="social-icons"> 
+            <a href="mailto:info@company.com" aria-label="Email"> 
+                <button><i class="fas fa-envelope"></i> <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" class="social-icon"> Email</button> </a> 
+                <a href="https://www.instagram.com/yourprofile" aria-label="Instagram"> <button><i class="fab fa-instagram"></i> <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" class="social-icon"> Instagram</button> </a> 
+                <a href="https://www.x.com/yourprofile" aria-label="X"> <button><i class="fab fa-x"></i> <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" class="social-icon"> X</button> </a> 
+                <a href="https://www.github.com/yourprofile" aria-label="GitHub"> <button><i class="fab fa-github"></i> <img src="https://cdn-icons-png.flaticon.com/512/2111/2111432.png" alt="GitHub" class="social-icon"> GitHub</button> </a>
+                <a href="https://www.reddit.com/user/yourprofile" aria-label="Reddit"> <button><i class="fab fa-reddit"></i> <img src="https://cdn-icons-png.flaticon.com/512/2111/2111589.png" alt="Reddit" class="social-icon">  Reddit</button> </a> 
+            </div> 
+            <!-- Feedback Form -->
+            <div class="feedback-section">
+                <h3>Feedback</h3>
+                <form id="feedbackForm">
+                    <input type="email" id="email" placeholder="Your Email here" required>
+                    <textarea placeholder="Your feedback here..." required></textarea>
+                    <button type="submit" class="feedback-btn">Submit Feedback</button>
+                </form>
+            </div>
+        </div>
+        <p>&copy; 2025 Personalized News. All Rights Reserved.</p>
+            </footer>
+
+    <!-- External JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>

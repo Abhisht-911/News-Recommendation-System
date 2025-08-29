@@ -1,0 +1,458 @@
+/* General Reset for margin, padding, and box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Root Variables for Easy Maintenance */
+:root {
+    --primary-color: #1a2a6c;
+    --secondary-color: #16A085;
+    --background-color: #f4f7fc;
+    --text-color: #333;
+    --box-shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Body Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+/* Header Section Styling */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+    box-shadow: 0 4px 10px var(--box-shadow-color);
+}
+
+header p {
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+/* Container for Content */
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+/* Search Bar Styling */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.search-bar input {
+    width: 60%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px 0 0 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.search-bar input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.search-bar button {
+    padding: 12px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: #4b79a1;
+}
+
+/* Filter Section Styling */
+.filters {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    box-shadow: 0 4px 10px var(--box-shadow-color);
+}
+
+.filters h2 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.filters select {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 100%;
+    background-color: #f7f7f7;
+    transition: border-color 0.3s ease;
+}
+
+.filters select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.filters p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* News List Styling (Grid Layout) */
+.news-list {
+    display: flex;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    justify-content: space-between;
+    margin: 20px auto;
+}
+
+/* News Item Styling */
+.news-item {
+    width: 100%;
+    max-width: 320px;
+    min-height: 400px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px var(--box-shadow-color);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    display: contents;
+    justify-content: space-between;
+}
+
+.news-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.news-item h3 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.news-item p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.news-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 50px var(--box-shadow-color);
+}
+
+.news-item:hover img {
+    transform: scale(1.05);
+}
+
+.news-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.news-item a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* News Item Animation on Load */
+.news-item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Loader Styling */
+.loader {
+    margin: 0 auto;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (min-width: 1024px) and (max-width: 1440px) {
+    .news-list {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .news-item {
+        max-width: 300px;
+    }
+
+    .news-item img {
+        height: 160px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .news-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .news-item {
+        max-width: 280px;
+    }
+}
+
+/* Navigation Bar Styling */
+.navbar {
+    background-color: var(--primary-color);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end;
+    box-shadow: 0 2px 5px var(--box-shadow-color);
+}
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+.navbar-menu li button {
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.navbar-menu li button:hover {
+    background-color: white;
+    transform: scale(1.1);
+}
+
+/* Footer Contact Section Styling */
+.contact-section, .feedback-section {
+    margin-top: 20px;
+}
+.contact-section ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+.contact-section ul li a {
+    display: flex;
+    align-items: center;
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+.contact-section ul li a:hover {
+    color: var(--secondary-color);
+    transform: scale(1.1);
+}
+
+/*Social Media Icons Styling*/
+.social-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+/* Social Icon Hover Effect */
+.contact-section ul li a:hover .social-icon {
+    transform: scale(1.2);
+}    
+
+/* Feedback Form Styling */
+.feedback-section textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+    margin-bottom: 15px;
+}
+
+.feedback-section button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.feedback-section button:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.1);
+}
+
+/* Footer Styling */
+.footer { 
+    background-color: #333; 
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 150px; 
+} 
+
+.footer .social-icons {
+    margin: 20px 0; 
+} 
+
+.footer .social-icons a { 
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 24px;
+    transition: color 0.3s;
+}
+
+.footer .social-icons a button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    border: none; border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.footer .social-icons a button i {
+    margin-right: 8px;
+}
+
+.footer .social-icons a:hover button {
+    background-color: #45a049;
+}
+
+.footer .feedback-form { 
+    margin: 20px 0;
+}
+/* Feedback Form - Feedback Section Styling */
+.feedback-section {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 15px; /* Space between rows */
+}
+
+/* Row containing email and feedback text */
+.feedback-section .feedback-input-row {
+    display: flex;
+    gap: 15px; /* Space between email input and feedback textarea */
+    align-items: flex-end; /* Align items at the top */
+}
+
+/* Email input and feedback textarea styling */
+.feedback-section input[type="email"],
+.feedback-section textarea {
+    width: 300px; /* Set the same width */
+    height: 50px; /* Set the same height */
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    transition: border-color 0.3s ease;
+}
+
+/* Feedback textarea height */
+.feedback-section textarea {
+    height: 50px; /* Match the input field height */
+    resize: none; /* Disable resizing */
+}
+
+/* Focus styling */
+.feedback-section input[type="email"]:focus,
+.feedback-section textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* Submit button styling */
+.feedback-section button {
+    width: 150px; /* Match width of input and textarea */
+    padding: 10px;
+    font-size: 1rem;
+    color: white;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px; /* Space above the button */
+    align-self: flex-start; /* Align button to the start */
+}
+
+/* Submit button hover effect */
+.feedback-section button:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+/* Footer Responsive Design */
+@media (max-width: 768px) {
+    .footer .social-icons {
+        text-align: center;
+    }
+
+    .footer .feedback-form {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .footer .feedback-section textarea {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .footer .feedback-section button {
+        width: 100%;
+    }
+}
+
